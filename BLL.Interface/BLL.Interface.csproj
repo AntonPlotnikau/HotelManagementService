@@ -42,7 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IHotelService.cs" />
+    <Compile Include="Models\Booking.cs" />
+    <Compile Include="Models\Enums\BookingStatus.cs" />
+    <Compile Include="Models\Enums\Gender.cs" />
+    <Compile Include="Models\Hotel.cs" />
+    <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\Enums\RoomType.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserInfo.cs" />
+    <Compile Include="Models\Enums\UserRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
