@@ -1,7 +1,9 @@
-﻿namespace BLL.Interface.Interfaces
+﻿using BLL.Interface.Models;
+
+namespace BLL.Interface.Interfaces
 {
 	public interface IHotelService
 	{
-		void AddHotel();
+		Hotel GetHotel();
 	}
 }
