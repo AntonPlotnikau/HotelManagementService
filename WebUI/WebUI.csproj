@@ -271,13 +271,13 @@
     <Content Include="Views\Other\FourOhFour.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\BLL\BLL.csproj">
-      <Project>{52c188ce-740f-40ab-9c68-8abe584b0ed4}</Project>
-      <Name>BLL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\BLL.Interface\BLL.Interface.csproj">
       <Project>{edce818e-9dcf-49b1-95d3-c48407fe275e}</Project>
       <Name>BLL.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{52c188ce-740f-40ab-9c68-8abe584b0ed4}</Project>
+      <Name>BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{d73acba2-58dc-4e83-a95b-17f276bd5a85}</Project>
