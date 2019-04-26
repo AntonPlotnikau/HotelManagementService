@@ -33,30 +33,13 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li id="about">
-                       @Html.ActionLink("О Гостинице", "Index", "About")
+                        @Html.ActionLink("О Гостинице", "Index", "About")
                     </li>
                     <li id="services">
                         @Html.ActionLink("Services", "Index", "Services")
                     </li>
-                    <li id="portfolio" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li id="1columnportfolio">
-                                @Html.ActionLink("1 Column Portfolio", "OneColumn", "Portfolio")
-                            </li>
-                            <li id="2columnportfolio">
-                                @Html.ActionLink("2 Column Portfolio", "TwoColumn", "Portfolio")
-                            </li>
-                            <li id="3columnportfolio">
-                                @Html.ActionLink("3 Column Portfolio", "ThreeColumn", "Portfolio")
-                            </li>
-                            <li id="4columnportfolio">
-                                @Html.ActionLink("4 Column Portfolio", "FourColumn", "Portfolio")
-                            </li>
-                            <li id="singleportfolioitem">
-                                @Html.ActionLink("Single Portfolio Item", "SingleItem", "Portfolio")
-                            </li>
-                        </ul>
+                    <li id="booking">
+                        @Html.ActionLink("Booking", "OneColumn", "Portfolio")
                     </li>
                     <li id="blog" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
@@ -87,7 +70,7 @@
                             <li id="404">
                                 @Html.ActionLink("404", "FourOhFour", "Other")
                             </li>
-                            
+
                         </ul>
                     </li>
                 </ul>
