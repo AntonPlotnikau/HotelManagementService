@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="df61ec50a3f04830ac5535de7c2d640a" Name="Diagram1" >
-        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="3.25" PointY="0.5" />
+        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="3.25" PointY="0.625" />
         <EntityTypeShape EntityType="DataModel.UserInfo" Width="1.5" PointX="1.25" PointY="1" />
         <AssociationConnector Association="DataModel.UserUserInfo" />
         <EntityTypeShape EntityType="DataModel.Hotel" Width="1.5" PointX="8.5" PointY="0.5" />

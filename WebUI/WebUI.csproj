@@ -238,18 +238,6 @@
     <Content Include="Views\Portfolio\OneColumn.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Portfolio\TwoColumn.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Portfolio\ThreeColumn.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Portfolio\FourColumn.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Portfolio\SingleItem.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Blog\Home1.cshtml" />
   </ItemGroup>
   <ItemGroup>

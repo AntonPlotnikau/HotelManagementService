@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/26/2019 00:12:55
+-- Date Created: 04/27/2019 00:21:04
 -- Generated from EDMX file: C:\Education\HotelManagementService\DAL\DataModel.edmx
 -- --------------------------------------------------
 
@@ -17,28 +17,25 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_UserUserInfo]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Users] DROP CONSTRAINT [FK_UserUserInfo];
+IF OBJECT_ID(N'[dbo].[FK_RoomBooking]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Bookings] DROP CONSTRAINT [FK_RoomBooking];
 GO
 IF OBJECT_ID(N'[dbo].[FK_RoomHotel]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Rooms] DROP CONSTRAINT [FK_RoomHotel];
 GO
-IF OBJECT_ID(N'[dbo].[FK_RoomBooking]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Bookings] DROP CONSTRAINT [FK_RoomBooking];
-GO
 IF OBJECT_ID(N'[dbo].[FK_UserBooking]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Bookings] DROP CONSTRAINT [FK_UserBooking];
+GO
+IF OBJECT_ID(N'[dbo].[FK_UserUserInfo]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Users] DROP CONSTRAINT [FK_UserUserInfo];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Users];
-GO
-IF OBJECT_ID(N'[dbo].[UserInfoes]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[UserInfoes];
+IF OBJECT_ID(N'[dbo].[Bookings]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Bookings];
 GO
 IF OBJECT_ID(N'[dbo].[Hotels]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Hotels];
@@ -46,8 +43,11 @@ GO
 IF OBJECT_ID(N'[dbo].[Rooms]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Rooms];
 GO
-IF OBJECT_ID(N'[dbo].[Bookings]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Bookings];
+IF OBJECT_ID(N'[dbo].[UserInfoes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UserInfoes];
+GO
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
 GO
 
 -- --------------------------------------------------
@@ -93,6 +93,7 @@ CREATE TABLE [dbo].[Rooms] (
     [DayPrice] decimal(18,0)  NOT NULL,
     [RoomType] nvarchar(max)  NOT NULL,
     [Description] nvarchar(max)  NOT NULL,
+    [ImageURL] nvarchar(max)  NOT NULL,
     [Hotel_Id] int  NOT NULL
 );
 GO
