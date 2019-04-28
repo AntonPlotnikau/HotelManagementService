@@ -33,21 +33,35 @@ namespace WebUI.Controllers
             return this.View(model);
         }
 
+        [HttpPost]
+        public ActionResult DeleteRoom(string id, FormCollection collection)
+        {
+            this.roomService.DeleteRoom(int.Parse(id));
+            return this.RedirectToAction("ControlRoomService");
+        }
+
+        [HttpGet]
+        public ActionResult EditRoom(string id)
+        {
+            var model = this.roomService.GetRoom(int.Parse(id));
+            return this.View(model);
+        }
+
         //[HttpPost]
-        //public ActionResult Delete(string isbn, FormCollection collection)
+        //public ActionResult Edit(Book book, string isbn)
         //{
         //    try
         //    {
-        //        this.service.Remove(isbn);
+        //        this.service.UpdateBook(book, isbn);
 
         //        return this.RedirectToAction("Index");
         //    }
         //    catch
         //    {
-        //        ViewBag.Error = "This book is not kept!";
         //        return this.View();
         //    }
         //}
+
         //public ActionResult Details(string isbn)
         //{
         //    var findBook = this.service.FindByTag(isbn);

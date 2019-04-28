@@ -19,7 +19,17 @@ namespace BLL.Services
 
         public Room GetRoom(int id)
         {
-            throw new NotImplementedException();
+            var roomsDB = this.roomRepository.GetRoom(id);
+
+            return new Room
+                       {
+                           Id = roomsDB.Id,
+                           PlacesCount = roomsDB.PlacesCount,
+                           Description = roomsDB.Description,
+                           DayPrice = roomsDB.DayPrice,
+                           ImageURL = roomsDB.ImageURL,
+                           RoomType = (RoomType)Enum.Parse(typeof(RoomType), roomsDB.RoomType, true)
+            };
         }
 
         public IEnumerable<Room> GetRooms()
@@ -34,13 +44,18 @@ namespace BLL.Services
                     Id = room.Id,
                     PlacesCount = room.PlacesCount,
                     DayPrice = room.DayPrice,
-                    RoomType = RoomType.Double, // не знаю как поменять
+                    RoomType = (RoomType)Enum.Parse(typeof(RoomType), room.RoomType, true),
                     Description = room.Description,
                     ImageURL = room.ImageURL
                               });
             }
 
             return rooms;
+        }
+
+        public void DeleteRoom(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

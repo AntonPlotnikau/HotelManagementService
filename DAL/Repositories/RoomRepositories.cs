@@ -27,5 +27,10 @@ namespace DAL.Repositories
                 return rooms.ToList();
             }
         }
+
+        public void DeleteRoom(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
