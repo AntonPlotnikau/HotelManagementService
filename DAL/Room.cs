@@ -25,6 +25,7 @@ namespace DAL
         public decimal DayPrice { get; set; }
         public string RoomType { get; set; }
         public string Description { get; set; }
+        public string ImageURL { get; set; }
     
         public virtual Hotel Hotel { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

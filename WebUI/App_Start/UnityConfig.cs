@@ -48,6 +48,8 @@ namespace WebUI
 			// container.RegisterType<IProductRepository, ProductRepository>();
 			container.RegisterType<IHotelService, HotelService>();
 			container.RegisterType<IHotelRepository, HotelRepository>();
+            container.RegisterType<IRoomService, RoomService>();
+            container.RegisterType<IRoomRepository, RoomRepositories>();
         }
     }
 }

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-	public interface IHotelRepository
-	{
-		Hotel GetHotel();
+    public interface IRoomRepository
+    {
+        Room GetRoom(int id);
+
+        IEnumerable<Room> GetRooms();
     }
 }

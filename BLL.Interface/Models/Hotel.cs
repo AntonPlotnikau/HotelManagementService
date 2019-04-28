@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Interface.Models
 {
-	public class Hotel
+    public class Hotel
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }

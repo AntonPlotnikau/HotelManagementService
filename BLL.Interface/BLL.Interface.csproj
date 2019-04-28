@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IHotelService.cs" />
+    <Compile Include="Interfaces\IRoomService.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Enums\BookingStatus.cs" />
     <Compile Include="Models\Enums\Gender.cs" />

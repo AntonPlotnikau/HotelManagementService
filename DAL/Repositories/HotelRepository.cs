@@ -18,5 +18,5 @@ namespace DAL.Repositories
 				return hotel;
 			}
 		}
-	}
+    }
 }

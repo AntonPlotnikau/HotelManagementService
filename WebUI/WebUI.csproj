@@ -176,7 +176,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OtherController.cs" />
-    <Compile Include="Controllers\PortfolioController.cs" />
+    <Compile Include="Controllers\RoomsController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -235,7 +235,7 @@
     <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Portfolio\OneColumn.cshtml" />
+    <Content Include="Views\Rooms\OneColumn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Blog\Home1.cshtml" />

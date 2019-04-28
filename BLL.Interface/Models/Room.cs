@@ -14,6 +14,7 @@ namespace BLL.Interface.Models
 		public decimal DayPrice { get; set; }
 		public RoomType RoomType { get; set; }
 		public string Description { get; set; }
+        public string ImageURL { get; set; }
 
 		public Hotel Hotel { get; set; }
 
