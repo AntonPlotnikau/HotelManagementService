@@ -42,7 +42,7 @@
             <h2 class="page-header">Tabbed Services</h2>
             <ul class="nav nav-tabs" id="myTab">
                 <li class="active">
-                    <a data-toggle="tab" href="#service-one">Service One</a>
+                    <a data-toggle="tab" href="#service-one">Управление номерами</a>
                 </li>
                 <li>
                     <a data-toggle="tab" href="#service-two">Service Two</a>
@@ -58,11 +58,9 @@
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-                <div id="service-one" class="tab-pane fade in active">
-                    <i class="fa fa-gear pull-left fa-4x"></i>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam placerat nunc ut tellus tristique, non posuere neque iaculis. Fusce aliquet dui ut felis rhoncus, vitae molestie mauris auctor. Donec pellentesque feugiat leo a adipiscing. Pellentesque quis tristique eros, sed rutrum mauris.</p>
-                    <p>Nam fringilla quis enim in eleifend. Suspendisse sed lectus mauris. Nam commodo, arcu et posuere placerat, tellus tortor dignissim eros, sit amet eleifend urna lorem sit amet nulla. Praesent sem nibh, vulputate nec congue eu, dapibus vitae augue. Suspendisse cursus urna sit amet metus porttitor, in pharetra quam feugiat. Etiam tempus euismod nulla eget pellentesque.</p>
-                </div>
+				<div id="service-one" class="tab-pane fade in active">
+					@Html.Partial("../Partials/RoomTable")
+				</div>
                 <div id="service-two" class="tab-pane fade">
                     <i class="fa fa-gears pull-left fa-4x"></i>
                     <p>Nam fringilla quis enim in eleifend. Suspendisse sed lectus mauris. Nam commodo, arcu et posuere placerat, tellus tortor dignissim eros, sit amet eleifend urna lorem sit amet nulla. Praesent sem nibh, vulputate nec congue eu, dapibus vitae augue. Suspendisse cursus urna sit amet metus porttitor, in pharetra quam feugiat. Etiam tempus euismod nulla eget pellentesque.</p>

@@ -34,7 +34,7 @@ namespace BLL.Services
                     Id = room.Id,
                     PlacesCount = room.PlacesCount,
                     DayPrice = room.DayPrice,
-                    RoomType = RoomType.Double, // не знаю как поменять
+                    RoomType = (RoomType)Enum.Parse(typeof(RoomType), room.RoomType, true), 
                     Description = room.Description,
                     ImageURL = room.ImageURL
                               });

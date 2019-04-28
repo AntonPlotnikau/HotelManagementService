@@ -2,6 +2,8 @@
 using System.Linq;
 using BLL.Interface.Interfaces;
 using BLL.Interface.Models;
+using Newtonsoft.Json;
+using System.Web.Helpers;
 
 namespace WebUI.Controllers
 {
@@ -24,5 +26,15 @@ namespace WebUI.Controllers
         {
             return View();
         }
+
+		[HttpGet]
+		public ContentResult GetRooms()
+		{
+			var data = this.roomService.GetRooms();
+
+			var json = JsonConvert.SerializeObject(data);
+
+			return Content(json, "application/json");
+		}
     }
 }

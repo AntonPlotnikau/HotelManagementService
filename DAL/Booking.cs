@@ -15,8 +15,8 @@ namespace DAL
     public partial class Booking
     {
         public int Id { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public System.DateTime StartDate { get; set; }
+        public System.DateTime EndDate { get; set; }
         public decimal Price { get; set; }
         public string BookingStatus { get; set; }
     

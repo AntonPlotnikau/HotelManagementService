@@ -1,0 +1,41 @@
+﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function () {
+		//Call EmpDetails jsonResult Method
+		$.getJSON("http://localhost:65010/Rooms/GetRooms",
+			function (json) {
+				var tr;
+				for (var i = 0; i < json.length; i++) {
+					tr = $('<tr/>');
+					tr.append(`<td class='col-sm'><img width="250" height="200" id='${json[i].Id}' src='${json[i].ImageURL}'/></td>`);
+					tr.append("<td class='col-sm'>" + json[i].PlacesCount + "</td>");
+					tr.append("<td class='col-sm'>" + json[i].DayPrice + "</td>");
+					tr.append("<td class='col-sm'>" + json[i].RoomType + "</td>");
+					tr.append("<td class='col-sm'>" + json[i].Description + "</td>");
+					tr.append("<td class='col-sm'><a href='#' title='Удалить'><span class= 'glyphicon glyphicon-remove'></span></a><a title='Редактировать' href='#'><span class= 'glyphicon glyphicon-cog'></span></a></td>");
+					$('table').append(tr);
+				}
+			})
+			.done(() => {
+				$(".glyphicon-remove").click((e) => {
+
+				});
+			});
+	});
+</script>
+<table id="room_table" class="table table-bordered table-condensed table-hover table-striped">
+	<thead>
+		<tr>
+			<th>Номер</th>
+			<th>Количество мест</th>
+			<th>Цена за ночь (BYN)</th>
+			<th>Тип номера</th>
+			<th>Описание</th>
+			<th>Действия</th>
+		</tr>
+	</thead>
+	<tbody></tbody>
+</table>
+<div class="btn-group" role="group">
+	<button id="add" type="button" class="btn btn-success">Добавить</button>
+</div>
