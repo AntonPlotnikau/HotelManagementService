@@ -15,5 +15,7 @@ namespace DAL.Interfaces
         void DeleteRoom(int id);
 
         void AddRoom(Room room);
+
+        void UpdateRoom(Room room);
     }
 }

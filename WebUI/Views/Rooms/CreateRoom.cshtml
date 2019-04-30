@@ -1,4 +1,5 @@
-﻿@model BLL.Interface.Models.Room
+﻿@using BLL.Services
+@model BLL.Interface.Models.Room
 
 
 <div class="container">
@@ -42,15 +43,14 @@
             <div class="form-group">
                 <p class="control-label col-md-2">Тип номера</p>
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.RoomType, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.RoomType, "", new { @class = "text-danger" })
+                    @Html.EnumDropDownListFor(model => model.RoomType, new { htmlAttributes = new { @class = "dropdown" } })
                 </div>
             </div>
 
             <div class="form-group">
                 <p class="control-label col-md-2">Описание</p>
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                 </div>
             </div>

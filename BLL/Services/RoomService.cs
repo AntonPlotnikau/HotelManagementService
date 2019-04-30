@@ -55,7 +55,7 @@ namespace BLL.Services
 
         public void DeleteRoom(int id)
         {
-            throw new NotImplementedException();
+            this.roomRepository.DeleteRoom(id);
         }
 
         public void AddRoom(Room room)
@@ -69,6 +69,20 @@ namespace BLL.Services
                     Description = room.Description,
                     ImageURL = room.ImageURL
                             });
+        }
+
+        public void UpdateRoom(Room room)
+        {
+            this.roomRepository.UpdateRoom(
+                new DAL.Room
+                    {
+                        Id = room.Id,
+                        PlacesCount = room.PlacesCount,
+                        DayPrice = room.DayPrice,
+                        RoomType = room.RoomType.ToString(),
+                        Description = room.Description,
+                        ImageURL = room.ImageURL
+                    });
         }
     }
 }

@@ -60,20 +60,13 @@ namespace WebUI.Controllers
             return this.View(model);
         }
 
-        //[HttpPost]
-        //public ActionResult Edit(Book book, string isbn)
-        //{
-        //    try
-        //    {
-        //        this.service.UpdateBook(book, isbn);
+        [HttpPost]
+        public ActionResult EditRoom(Room book)
+        {
+            this.roomService.UpdateRoom(book);
 
-        //        return this.RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return this.View();
-        //    }
-        //}
+            return this.RedirectToAction("ControlRoomService");
+        }
 
         //public ActionResult Details(string isbn)
         //{
