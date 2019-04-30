@@ -220,6 +220,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Rooms\DeleteRoom.cshtml" />
     <Content Include="Views\Rooms\EditRoom.cshtml" />
+    <Content Include="Views\Rooms\CreateRoom.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

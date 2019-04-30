@@ -41,6 +41,12 @@ namespace WebUI.Controllers
         }
 
         [HttpGet]
+        public ActionResult CreateRoom()
+        {
+            return this.View();
+        }
+
+        [HttpGet]
         public ActionResult EditRoom(string id)
         {
             var model = this.roomService.GetRoom(int.Parse(id));

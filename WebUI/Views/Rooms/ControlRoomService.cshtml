@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<BLL.Interface.Models.Room>
+@using BLL.Services
 
 @{
     ViewBag.Title = "ControlRoomService";
@@ -19,7 +20,7 @@
             </div>
         </div>
         <p>
-            @Html.ActionLink("Добавить комнату", "Create")
+            @Html.ActionLink("Добавить комнату", "CreateRoom")
         </p>
         <table class="table table-bordered table-condensed table-hover table-striped">
             <tr>
@@ -41,7 +42,7 @@
                         @Html.DisplayFor(modelItem => item.DayPrice)
                     </td>
                     <td>
-                        @item.RoomType.ToString()
+                        @item.RoomType.GetDisplayName()
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Description)
@@ -50,9 +51,8 @@
                         <img width="250" height="200" src="@item.ImageURL"/>
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "EditRoom", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "DeleteRoom", new { id = item.Id })
+                        @Html.ActionLink("Редактировать", "EditRoom", new { id = item.Id }) |
+                        @Html.ActionLink("Удалить", "DeleteRoom", new { id = item.Id })
                     </td>
                 </tr>
             }
