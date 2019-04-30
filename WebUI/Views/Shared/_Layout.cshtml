@@ -39,7 +39,7 @@
                         @Html.ActionLink("Services", "Index", "Services")
                     </li>
                     <li id="booking">
-                        @Html.ActionLink("Номера", "OneColumn", "Rooms")
+                        @Html.ActionLink("Номера", "RoomsBooking", "Rooms")
                     </li>
                     <li id="blog" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
@@ -58,6 +58,9 @@
                     <li id="other" class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                            <li id="fullwidthpage">
+                                @Html.ActionLink("Управление номерами", "ControlRoomService", "Rooms")
+                            </li>
                             <li id="fullwidthpage">
                                 @Html.ActionLink("Full Width Page", "FullWidth", "Other")
                             </li>

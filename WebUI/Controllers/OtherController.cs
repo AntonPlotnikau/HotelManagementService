@@ -8,6 +8,8 @@ namespace WebUI.Controllers
     public class OtherController : Controller
     {
         
+
+
         public ActionResult FullWidth()
         {
             return View();

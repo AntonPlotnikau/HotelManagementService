@@ -1,0 +1,80 @@
+﻿@model BLL.Interface.Models.Room
+
+@{
+    ViewBag.Title = "DeleteRoom";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">
+                Удаление номера
+            </h2>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Домой", "Index", "Home")
+                </li>
+                <li class="active">Удаление номера</li>
+            </ol>
+        </div>
+    </div>
+
+    <h3>Вы действительно хотите удалить его?</h3>
+    <div>
+        <h4>Номер</h4>
+        <hr/>
+        <dl class="dl-horizontal">
+            <dt>
+                Количество мест
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PlacesCount)
+            </dd>
+
+            <dt>
+                Цена за ночь (BYN)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DayPrice)
+            </dd>
+            
+            <dt>
+                Тип номера
+            </dt>
+
+            <dd>
+                @Model.RoomType.ToString()
+            </dd>
+
+            <dt>
+                Описание
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                Номер
+            </dt>
+
+            <dd class='col-sm'>
+                <img width="250" height="200" src="@Model.ImageURL"/>
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-success"/> |
+                @Html.ActionLink("Назад к номерам", "ControlRoomService")
+            </div>
+        }
+    </div>
+</div>

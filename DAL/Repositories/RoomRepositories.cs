@@ -1,11 +1,10 @@
 ﻿using System;
 using DAL.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DAL.Repositories
 {
-    using System.Collections.Generic;
-    using System.Linq;
-
     public class RoomRepositories : IRoomRepository
     {
         public Room GetRoom(int id)
@@ -25,6 +24,40 @@ namespace DAL.Repositories
                 var rooms = container.Rooms;
 
                 return rooms.ToList();
+            }
+        }
+
+        public void DeleteRoom(int id)
+        {
+            using (var container = new DataModelContainer())
+            {
+                var room = container.Rooms.FirstOrDefault(r => r.Id == id);
+                container.Rooms.Remove(room);
+                container.SaveChanges();
+            }
+        }
+
+        public void AddRoom(Room room)
+        {
+            using (DataModelContainer container = new DataModelContainer())
+            {
+                room.Hotel = container.Hotels.FirstOrDefault();
+                container.Rooms.Add(room);
+                container.SaveChanges();
+            }
+        }
+
+        public void UpdateRoom(Room room)
+        {
+            using (var container = new DataModelContainer())
+            {
+                var roomDB = container.Rooms.FirstOrDefault(r => r.Id == room.Id);
+                roomDB.PlacesCount = room.PlacesCount;
+                roomDB.RoomType = room.RoomType;
+                roomDB.DayPrice = room.DayPrice;
+                roomDB.Description = room.Description;
+                roomDB.ImageURL = room.ImageURL;
+                container.SaveChanges();
             }
         }
     }
