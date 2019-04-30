@@ -57,5 +57,18 @@ namespace BLL.Services
         {
             throw new NotImplementedException();
         }
+
+        public void AddRoom(Room room)
+        {
+            this.roomRepository.AddRoom(new DAL.Room
+                                            {
+                    Id = room.Id,
+                    PlacesCount = room.PlacesCount,
+                    DayPrice = room.DayPrice,
+                    RoomType = room.RoomType.ToString(),
+                    Description = room.Description,
+                    ImageURL = room.ImageURL
+                            });
+        }
     }
 }

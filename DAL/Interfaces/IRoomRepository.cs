@@ -13,5 +13,7 @@ namespace DAL.Interfaces
         IEnumerable<Room> GetRooms();
 
         void DeleteRoom(int id);
+
+        void AddRoom(Room room);
     }
 }

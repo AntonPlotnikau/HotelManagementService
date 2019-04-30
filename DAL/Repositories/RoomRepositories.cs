@@ -4,6 +4,7 @@ using DAL.Interfaces;
 namespace DAL.Repositories
 {
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Linq;
 
     public class RoomRepositories : IRoomRepository
@@ -31,6 +32,12 @@ namespace DAL.Repositories
         public void DeleteRoom(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public void AddRoom(Room room)
+        {
+            throw new NotImplementedException();
+
         }
     }
 }

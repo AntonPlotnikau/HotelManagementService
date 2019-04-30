@@ -46,6 +46,13 @@ namespace WebUI.Controllers
             return this.View();
         }
 
+        [HttpPost]
+        public ActionResult CreateRoom(Room room)
+        {
+            this.roomService.AddRoom(room);
+            return this.RedirectToAction("ControlRoomService");
+        }
+
         [HttpGet]
         public ActionResult EditRoom(string id)
         {
