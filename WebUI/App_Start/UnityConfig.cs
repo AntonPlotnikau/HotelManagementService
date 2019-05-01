@@ -50,6 +50,7 @@ namespace WebUI
 			container.RegisterType<IHotelRepository, HotelRepository>();
             container.RegisterType<IRoomService, RoomService>();
             container.RegisterType<IRoomRepository, RoomRepositories>();
-        }
+			container.RegisterType<IUserService, UserService>();
+		}
     }
 }

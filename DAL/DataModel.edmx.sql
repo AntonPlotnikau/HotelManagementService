@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/28/2019 16:00:30
+-- Date Created: 05/01/2019 20:58:20
 -- Generated from EDMX file: D:\БГУИР\Курсач3.2\HotelManagementService\DAL\DataModel.edmx
 -- --------------------------------------------------
 
@@ -56,8 +56,8 @@ GO
 
 -- Creating table 'Users'
 CREATE TABLE [dbo].[Users] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [Login] nvarchar(max)  NOT NULL,
+    [Id] nvarchar(100)  NOT NULL,
+    [UserName] nvarchar(max)  NOT NULL,
     [Password] nvarchar(max)  NOT NULL,
     [UserRole] nvarchar(max)  NOT NULL,
     [UserInfo_Id] int  NOT NULL
@@ -72,7 +72,7 @@ CREATE TABLE [dbo].[UserInfoes] (
     [Email] nvarchar(max)  NOT NULL,
     [Age] int  NOT NULL,
     [Sex] nvarchar(max)  NOT NULL,
-    [Id] int  NOT NULL
+    [Id] int IDENTITY(1,1) NOT NULL
 );
 GO
 
@@ -106,7 +106,7 @@ CREATE TABLE [dbo].[Bookings] (
     [Price] decimal(18,0)  NOT NULL,
     [BookingStatus] nvarchar(max)  NOT NULL,
     [Room_Id] int  NOT NULL,
-    [User_Id] int  NOT NULL
+    [User_Id] nvarchar(100)  NOT NULL
 );
 GO
 
