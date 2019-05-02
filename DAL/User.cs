@@ -9,19 +9,21 @@
 
 namespace DAL
 {
-    using System;
+	using Microsoft.AspNet.Identity;
+	using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class User: IUser
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
+			this.Id = Guid.NewGuid().ToString();
             this.Bookings = new HashSet<Booking>();
         }
     
-        public int Id { get; set; }
-        public string Login { get; set; }
+        public string Id { get; set; }
+        public string UserName { get; set; }
         public string Password { get; set; }
         public string UserRole { get; set; }
     

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using DAL.Managers;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
@@ -10,6 +11,7 @@ namespace WebUI
 		// For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
 		public void ConfigureAuth(IAppBuilder app)
 		{
+			app.CreatePerOwinContext<UserManager>(UserManager.Create);
 			// Enable the application to use a cookie to store information for the signed in user
 			app.UseCookieAuthentication(new CookieAuthenticationOptions
 			{

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using WebUI.Models
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -31,52 +33,79 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li id="about">
-                        @Html.ActionLink("О Гостинице", "Index", "About")
-                    </li>
-                    <li id="services">
-                        @Html.ActionLink("Services", "Index", "Services")
-                    </li>
-                    <li id="booking">
-                        @Html.ActionLink("Номера", "RoomsBooking", "Rooms")
-                    </li>
-                    <li id="blog" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li id="bloghome1">
-                                @Html.ActionLink("Blog Home 1", "Home1", "Blog")
-                            </li>
-                            <li id="bloghome2">
-                                @Html.ActionLink("Blog Home 2", "Home2", "Blog")
-                            </li>
-                            <li id="blogpost">
-                                @Html.ActionLink("Blog Post", "Post", "Blog")
-                            </li>
-                        </ul>
-                    </li>
-                    <li id="other" class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li id="fullwidthpage">
-                                @Html.ActionLink("Управление номерами", "ControlRoomService", "Rooms")
-                            </li>
-                            <li id="fullwidthpage">
-                                @Html.ActionLink("Full Width Page", "FullWidth", "Other")
-                            </li>
-                            <li id="sidebarpage">
-                                @Html.ActionLink("Sidebar Page", "Sidebar", "Other")
-                            </li>
-                            <li id="faq">
-                                @Html.ActionLink("FAQ", "Faq", "Other")
-                            </li>
-                            <li id="404">
-                                @Html.ActionLink("404", "FourOhFour", "Other")
-                            </li>
+				<ul class="nav navbar-nav navbar-right">
+					<li id="about">
+						@Html.ActionLink("О Гостинице", "Index", "About")
+					</li>
+					@if (MenuSecurity.IsManager)
+					{
+						<li id="services">
+							@Html.ActionLink("Services", "Index", "Services")
+						</li>
+					}
+					@if (MenuSecurity.IsClient)
+					{
+						<li id="booking">
+							@Html.ActionLink("Номера", "RoomsBooking", "Rooms")
+						</li>
+					}
+					@if (MenuSecurity.IsManager)
+					{
+						<li id="blog" class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li id="bloghome1">
+									@Html.ActionLink("Blog Home 1", "Home1", "Blog")
+								</li>
+								<li id="bloghome2">
+									@Html.ActionLink("Blog Home 2", "Home2", "Blog")
+								</li>
+								<li id="blogpost">
+									@Html.ActionLink("Blog Post", "Post", "Blog")
+								</li>
+							</ul>
+						</li>
+					}
+					@if (MenuSecurity.IsManager)
+					{
+						<li id="other" class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li id="fullwidthpage">
+									@Html.ActionLink("Управление номерами", "ControlRoomService", "Rooms")
+								</li>
+								<li id="fullwidthpage">
+									@Html.ActionLink("Full Width Page", "FullWidth", "Other")
+								</li>
+								<li id="sidebarpage">
+									@Html.ActionLink("Sidebar Page", "Sidebar", "Other")
+								</li>
+								<li id="faq">
+									@Html.ActionLink("FAQ", "Faq", "Other")
+								</li>
+								<li id="404">
+									@Html.ActionLink("404", "FourOhFour", "Other")
+								</li>
 
-                        </ul>
-                    </li>
-                </ul>
+							</ul>
+						</li>
+					}
+					@if (!MenuSecurity.IsAuthorized)
+					{
+						<li id="login">
+							@Html.ActionLink("Войти", "Login", "Account")
+						</li>
+						<li id="register">
+							@Html.ActionLink("Регистрация", "Register", "Account")
+						</li>
+					}
+					@if (MenuSecurity.IsAuthorized)
+					{
+						<li id="logout">
+							@Html.ActionLink("Выйти", "Logout", "Account")
+						</li>
+					}
+				</ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>

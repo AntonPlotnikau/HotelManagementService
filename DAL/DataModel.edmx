@@ -32,8 +32,8 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="UserRole" Type="nvarchar(max)" Nullable="false" />
     <Property Name="UserInfo_Id" Type="int" Nullable="false" />
@@ -48,7 +48,7 @@
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Age" Type="int" Nullable="false" />
     <Property Name="Sex" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="Hotels">
     <Key>
@@ -82,7 +82,7 @@
     <Property Name="Price" Type="decimal" Nullable="false" Precision="18" Scale="0" />
     <Property Name="BookingStatus" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Room_Id" Type="int" Nullable="false" />
-    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <Association Name="UserUserInfo">
     <End Role="User" Type="DataModel.Store.Users" Multiplicity="*" />
@@ -163,8 +163,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Id" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="100" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="UserInfo" Relationship="DataModel.UserUserInfo" FromRole="User" ToRole="UserInfo" />
           <Property Name="UserRole" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
@@ -181,7 +181,7 @@
           <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="Age" Type="Int32" Nullable="false" />
           <Property Name="Sex" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
         <Association Name="UserUserInfo">
           <End Type="DataModel.User" Role="User" Multiplicity="1" />
@@ -245,7 +245,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(DataModel.User)">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="UserRole" ColumnName="UserRole" />
         </MappingFragment>
