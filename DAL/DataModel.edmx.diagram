@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="df61ec50a3f04830ac5535de7c2d640a" Name="Diagram1" >
-        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="3.25" PointY="0.625" />
-        <EntityTypeShape EntityType="DataModel.UserInfo" Width="1.5" PointX="1.25" PointY="1" />
+        <EntityTypeShape EntityType="DataModel.User" Width="1.5" PointX="3.375" PointY="0.5" />
+        <EntityTypeShape EntityType="DataModel.UserInfo" Width="1.5" PointX="1.375" PointY="1.125" />
         <AssociationConnector Association="DataModel.UserUserInfo" />
-        <EntityTypeShape EntityType="DataModel.Hotel" Width="1.5" PointX="8.5" PointY="0.5" />
-        <EntityTypeShape EntityType="DataModel.Room" Width="1.5" PointX="6.75" PointY="0.875" />
+        <EntityTypeShape EntityType="DataModel.Hotel" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DataModel.Room" Width="1.5" PointX="7.625" PointY="0.875" />
         <AssociationConnector Association="DataModel.RoomHotel" />
-        <EntityTypeShape EntityType="DataModel.Booking" Width="1.5" PointX="5" PointY="1.875" />
+        <EntityTypeShape EntityType="DataModel.Booking" Width="1.5" PointX="5.75" PointY="1.625" />
         <AssociationConnector Association="DataModel.RoomBooking" />
         <AssociationConnector Association="DataModel.UserBooking" />
       </Diagram>

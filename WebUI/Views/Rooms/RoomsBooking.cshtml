@@ -19,14 +19,14 @@
             </ol>
         </div>
     </div>
-	@if(Model.Count == 0)
-	{
-	<div class="row">
-		<div class="col-md-7">
-			<h1>Не найдено ни одного номера. Обратитесь в нашу техподдержку.</h1>
-		</div>
-	</div>
-	}
+    @if (Model.Count == 0)
+    {
+        <div class="row">
+            <div class="col-md-7">
+                <h1>Не найдено ни одного номера. Обратитесь в нашу техподдержку.</h1>
+            </div>
+        </div>
+    }
     @foreach (var item in Model)
     {
         <div class="row">
@@ -37,9 +37,17 @@
                 <h3>Цена за ночь: @item.DayPrice BYN</h3>
                 <h4>Количество спальных мест: @item.PlacesCount</h4>
                 <p>@item.Description</p>
-                <a href="@Url.Action("SingleItem", "Portfolio")" class="btn btn-primary">Забронировать<i class="fa fa-angle-right"></i></a>
+                <a href="@Url.Action("BookRoom", "Booking", new {roomid = item.Id})" class="btn btn-primary">Забронировать<i class="fa fa-angle-right"></i></a>
             </div>
         </div>
         <hr>
     }
 </div>
+
+<!-- Code to wire up your DatePicker -->
+<script type="text/javascript">
+    $(function () {
+        // This will make every element with the class "date-picker" into a DatePicker element
+        $('.date-picker').datepicker();
+    })
+</script>

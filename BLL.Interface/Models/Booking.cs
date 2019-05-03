@@ -7,12 +7,22 @@ using System.Threading.Tasks;
 
 namespace BLL.Interface.Models
 {
-	public class Booking
+    using System.ComponentModel.DataAnnotations;
+
+    public class Booking
 	{
 		public int Id { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:yyyy-mm-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
 		public DateTime StartDate { get; set; }
-		public DateTime EndDate { get; set; }
-		public decimal Price { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:yyyy-mm-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        public DateTime EndDate { get; set; }
+
+        [Range(1, int.MaxValue, ErrorMessage = "Цена не может быть отрицательной")]
+        public decimal Price { get; set; }
 		public BookingStatus BookingStatus { get; set; }
 
 		public Room Room { get; set; }

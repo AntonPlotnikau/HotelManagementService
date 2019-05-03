@@ -22,7 +22,7 @@ namespace BLL.Interface.Models
 		[DataType(DataType.EmailAddress)]
 		public string Email { get; set; }
 		[Required]
-		[Range(1,100)]
+		[Range(1, 100)]
 		public int Age { get; set; }
 		public Gender Sex { get; set; }
 

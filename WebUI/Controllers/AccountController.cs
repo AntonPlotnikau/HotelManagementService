@@ -52,7 +52,7 @@ namespace WebUI.Controllers
 
 			if (ModelState.IsValid)
 			{
-				return RedirectToAction("Index");
+				return RedirectToAction("Login");
 			}
 
 			return View(user);
