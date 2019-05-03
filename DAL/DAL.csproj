@@ -96,6 +96,7 @@
     <Compile Include="Hotel.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IBookingRepository.cs" />
     <Compile Include="Interfaces\IHotelRepository.cs" />
     <Compile Include="Interfaces\IRoomRepository.cs" />
     <Compile Include="Managers\UserManager.cs" />
