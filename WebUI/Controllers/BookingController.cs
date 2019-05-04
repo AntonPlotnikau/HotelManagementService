@@ -8,8 +8,9 @@ namespace WebUI.Controllers
 {
 	using BLL.Interface.Interfaces;
 	using BLL.Interface.Models;
+	using BLL.Interface.Models.Enums;
 
-    public class BookingController : Controller
+	public class BookingController : Controller
     {
 		private readonly IBookingService service;
 
@@ -24,11 +25,11 @@ namespace WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult BookRoom(Booking booking)
+        public ActionResult BookRoom(Booking booking, int id)
         {
 			try
 			{
-				booking.Room = new Room { Id = 2 }; // ??????????????????????????????????????????????????
+				booking.Room = new Room { Id = id };
 				service.AddBooking(booking, HttpContext.User.Identity.Name);
 			}
 			catch (ArgumentException)
@@ -55,5 +56,12 @@ namespace WebUI.Controllers
             var model = this.service.GetAllBookings();
             return View(model);
         }
+
+		public ActionResult CloseBooking(int id)
+		{
+			service.ChangeStatus(BookingStatus.Closed, id);
+
+			return RedirectToAction("GetBookings");
+		}
 	}
 }

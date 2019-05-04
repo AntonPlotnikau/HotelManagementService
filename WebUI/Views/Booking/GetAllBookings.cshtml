@@ -26,6 +26,7 @@
             <th>Цена (BYN)</th>
             <th>Номер</th>
             <th>Статус брони</th>
+			<th>Пользователь</th>
             <th>Действия</th>
         </tr>
 
@@ -47,9 +48,16 @@
                 <td>
                     @item.BookingStatus.GetDisplayName()
                 </td>
-                <td>
-                    @Html.ActionLink("Отменить бронь", "", new { id = item.Id }) |
-                </td>
+				<td>
+					@Html.ActionLink(item.User.UserName, "GetAccountInfoByName", "Account", new { name = item.User.UserName }, null)
+				</td>
+				<td>
+					@if (item.BookingStatus == BLL.Interface.Models.Enums.BookingStatus.Opened)
+					{
+						@Html.ActionLink("Подтвердить бронь | ", "", new { id = item.Id })	
+						@Html.ActionLink("Отклонить бронь", "", new { id = item.Id })
+					}
+				</td>
             </tr>
         }
     </table>

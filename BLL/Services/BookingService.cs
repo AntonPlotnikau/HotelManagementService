@@ -36,6 +36,15 @@ namespace BLL.Services
 			repository.AddBooking(bookingDB, userName);
 		}
 
+		public void ChangeStatus(BookingStatus newStatus, int id)
+		{
+			var booking = repository.GetBooking(id);
+
+			booking.BookingStatus = newStatus.ToString();
+
+			repository.UpdateBooking(booking);
+		}
+
 		public IEnumerable<Booking> GetAllBookings()
         {
             var bookingsDB = repository.GetAllBookings();

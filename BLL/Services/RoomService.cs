@@ -88,10 +88,11 @@ namespace BLL.Services
         public IEnumerable<Room> GetRooms(FindRoomsRequest request)
         {
             var rooms = this.roomRepository.GetRooms(
-                r => (r.Bookings == null || r.Bookings.All(
-                          b => request.StartDate < b.StartDate && b.StartDate < request.EndDate
+                r => (r.Bookings == null || !r.Bookings.Any(
+                          b => (b.BookingStatus == BookingStatus.Opened.ToString() || b.BookingStatus == BookingStatus.Confirmed.ToString()) &&
+						  (request.StartDate < b.StartDate && b.StartDate < request.EndDate
                                || request.StartDate < b.EndDate && b.EndDate <= request.EndDate
-                               || b.StartDate < request.StartDate && b.EndDate > request.EndDate))
+                               || b.StartDate < request.StartDate && b.EndDate > request.EndDate)))
                      && r.PlacesCount >= request.PlacesCount);
 
             foreach (var room in rooms)

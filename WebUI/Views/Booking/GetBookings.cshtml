@@ -48,7 +48,10 @@
 				@item.BookingStatus.GetDisplayName()
 			</td>
 			<td>
-				@Html.ActionLink("Отменить бронь", "", new { id = item.Id }) |
+				@if (item.BookingStatus == BLL.Interface.Models.Enums.BookingStatus.Opened || item.BookingStatus == BLL.Interface.Models.Enums.BookingStatus.Confirmed)
+				{
+					@Html.ActionLink("Отменить бронь", "CloseBooking", new { id = item.Id }) 
+				}
 			</td>
 		</tr>
 		}

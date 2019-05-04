@@ -1,4 +1,5 @@
 ﻿@model BLL.Interface.Models.User
+@using BLL.Services
 
 @{
     ViewBag.Title = "GetAccountInfo";
@@ -22,27 +23,63 @@
     <div>
         <h4>Пользователь</h4>
         <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                <p>Логин</p>
-            </dt>
+		<dl class="dl-horizontal">
+			<dt>
+				<p>Логин</p>
+			</dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.UserName)
-            </dd>
+			<dd>
+				@Html.DisplayFor(model => model.UserName)
+			</dd>
 
-            <dt>
-                <p>Пароль</p>
-            </dt>
+			<dt>
+				<p>Имя</p>
+			</dt>
 
-            <dd>
-                @Html.PasswordFor(model => model.Password)
-            </dd>
+			<dd>
+				@Html.DisplayFor(model => model.Info.Name)
+			</dd>
 
-        </dl>
+			<dt>
+				<p>Фамилия</p>
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Info.Surname)
+			</dd>
+
+			<dt>
+				<p>Номер телефона</p>
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Info.PhoneNumber)
+			</dd>
+
+			<dt>
+				<p>Электронный адрес</p>
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Info.Email)
+			</dd>
+
+			<dt>
+				<p>Возраст</p>
+			</dt>
+
+			<dd>
+				@Html.DisplayFor(model => model.Info.Age)
+			</dd>
+
+			<dt>
+				<p>Пол</p>
+			</dt>
+
+			<dd>
+				@Model.Info.Sex.GetDisplayName()
+			</dd>
+		</dl>
     </div>
-        <p>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-        </p>
 
 </div>

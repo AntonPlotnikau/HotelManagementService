@@ -1,4 +1,5 @@
 ﻿using BLL.Interface.Models;
+using BLL.Interface.Models.Enums;
 using System.Collections.Generic;
 
 namespace BLL.Interface.Interfaces
@@ -14,5 +15,7 @@ namespace BLL.Interface.Interfaces
         void AddBooking(Booking booking, string userName);
 
 		void UpdateBooking(Booking booking);
+
+		void ChangeStatus(BookingStatus newStatus, int id);
 	}
 }

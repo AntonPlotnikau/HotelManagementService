@@ -12,9 +12,11 @@ namespace DAL.Repositories
 		{
 			using (var container = new DataModelContainer())
 			{
-				bool isBooked = container.Rooms.Any(r => r.Bookings.Any(b => booking.StartDate < b.StartDate && b.StartDate < booking.EndDate ||
-																		booking.StartDate < b.EndDate && b.EndDate <= booking.EndDate ||
-																		b.StartDate < booking.StartDate && b.EndDate > booking.EndDate));
+				bool isBooked = container.Rooms.FirstOrDefault(r => r.Id == booking.Room.Id).Bookings.Any(
+					b => (b.BookingStatus == "Opened" || b.BookingStatus == "Confirmed") &&
+				(booking.StartDate < b.StartDate && b.StartDate < booking.EndDate ||
+				booking.StartDate < b.EndDate && b.EndDate <= booking.EndDate ||
+				b.StartDate < booking.StartDate && b.EndDate > booking.EndDate));
 
 				if (isBooked)
 				{
@@ -33,7 +35,10 @@ namespace DAL.Repositories
 
         public Booking GetBooking(int id)
 		{
-			throw new System.NotImplementedException();
+			using(var container = new DataModelContainer())
+			{
+				return container.Bookings.FirstOrDefault(b => b.Id == id);
+			}
 		}
 
 		public IEnumerable<Booking> GetBookings(string userName)
@@ -56,7 +61,16 @@ namespace DAL.Repositories
 
         public void UpdateBooking(Booking booking)
 		{
-			throw new System.NotImplementedException();
+			using(var container = new DataModelContainer())
+			{
+				var bookingDB = container.Bookings.FirstOrDefault(b => b.Id == booking.Id);
+
+				bookingDB.Price = booking.Price;
+				bookingDB.StartDate = booking.StartDate;
+				bookingDB.EndDate = booking.EndDate;
+				bookingDB.BookingStatus = booking.BookingStatus;
+				container.SaveChanges();
+			}
 		}
 	}
 }
