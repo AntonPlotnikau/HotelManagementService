@@ -1,4 +1,5 @@
-﻿@model BLL.Interface.Models.Booking
+﻿@using BLL.Interface.Models
+@model BLL.Interface.Models.Booking
 
 
 @{
@@ -48,6 +49,7 @@
     }
     
     @{
+        Model.Room = new Room();
         Model.Room.Id = ViewBag.roomid;
     }
 
