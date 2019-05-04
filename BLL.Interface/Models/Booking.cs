@@ -21,7 +21,6 @@ namespace BLL.Interface.Models
         [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
 
-        [Range(1, int.MaxValue, ErrorMessage = "Цена не может быть отрицательной")]
         public decimal Price { get; set; }
 		public BookingStatus BookingStatus { get; set; }
 

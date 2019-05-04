@@ -16,7 +16,7 @@
 
     <!-- Bootstrap -->
     <link href="@Url.Content("/css/bootstrap.css")" rel="stylesheet">
-    <link href="@Url.Content("/css/modern-business.css")" rel="stylesheet">
+	<link href="@Url.Content("/css/modern-business.css")" rel="stylesheet">
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -39,79 +39,90 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li id="about">
-                        @Html.ActionLink("О Гостинице", "Index", "About")
-                    </li>
-                    @if (MenuSecurity.IsManager)
-                    {
-                        <li id="services">
-                            @Html.ActionLink("Services", "Index", "Services")
-                        </li>
-                    }
-                    @if (MenuSecurity.IsClient)
-                    {
-                        <li id="booking">
-                            @Html.ActionLink("Номера", "RoomsBooking", "Rooms")
-                        </li>
-                    }
-                    @if (MenuSecurity.IsManager)
-                    {
-                        <li id="blog" class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li id="bloghome1">
-                                    @Html.ActionLink("Blog Home 1", "Home1", "Blog")
-                                </li>
-                                <li id="bloghome2">
-                                    @Html.ActionLink("Blog Home 2", "Home2", "Blog")
-                                </li>
-                                <li id="blogpost">
-                                    @Html.ActionLink("Blog Post", "Post", "Blog")
-                                </li>
-                            </ul>
-                        </li>
-                    }
-                    @if (MenuSecurity.IsManager)
-                    {
-                        <li id="other" class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li id="fullwidthpage">
-                                    @Html.ActionLink("Управление номерами", "ControlRoomService", "Rooms")
-                                </li>
-                                <li id="fullwidthpage">
-                                    @Html.ActionLink("Full Width Page", "FullWidth", "Other")
-                                </li>
-                                <li id="sidebarpage">
-                                    @Html.ActionLink("Sidebar Page", "Sidebar", "Other")
-                                </li>
-                                <li id="faq">
-                                    @Html.ActionLink("FAQ", "Faq", "Other")
-                                </li>
-                                <li id="404">
-                                    @Html.ActionLink("404", "FourOhFour", "Other")
-                                </li>
+				<ul class="nav navbar-nav navbar-right">
+					<li id="about">
+						@Html.ActionLink("О Гостинице", "Index", "About")
+					</li>
+					@if (MenuSecurity.IsManager)
+					{
+						<li id="services">
+							@Html.ActionLink("Services", "Index", "Services")
+						</li>
+					}
+					@if (MenuSecurity.IsClient)
+					{
+						<li id="booking">
+							@Html.ActionLink("Номера", "RoomsBooking", "Rooms")
+						</li>
+						<li id="user_cabinet" class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Личный кабинет<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li id="bloghome1">
+									@Html.ActionLink("Информация о пользователе", "Home1", "Blog")
+								</li>
+								<li id="bloghome2">
+									@Html.ActionLink("Брони", "GetBookings", "Booking")
+								</li>
+							</ul>
+						</li>
+					}
+					@if (MenuSecurity.IsManager)
+					{
+						<li id="blog" class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li id="bloghome1">
+									@Html.ActionLink("Blog Home 1", "Home1", "Blog")
+								</li>
+								<li id="bloghome2">
+									@Html.ActionLink("Blog Home 2", "Home2", "Blog")
+								</li>
+								<li id="blogpost">
+									@Html.ActionLink("Blog Post", "Post", "Blog")
+								</li>
+							</ul>
+						</li>
+					}
+					@if (MenuSecurity.IsManager)
+					{
+						<li id="other" class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li id="fullwidthpage">
+									@Html.ActionLink("Управление номерами", "ControlRoomService", "Rooms")
+								</li>
+								<li id="fullwidthpage">
+									@Html.ActionLink("Full Width Page", "FullWidth", "Other")
+								</li>
+								<li id="sidebarpage">
+									@Html.ActionLink("Sidebar Page", "Sidebar", "Other")
+								</li>
+								<li id="faq">
+									@Html.ActionLink("FAQ", "Faq", "Other")
+								</li>
+								<li id="404">
+									@Html.ActionLink("404", "FourOhFour", "Other")
+								</li>
 
-                            </ul>
-                        </li>
-                    }
-                    @if (!MenuSecurity.IsAuthorized)
-                    {
-                        <li id="login">
-                            @Html.ActionLink("Войти", "Login", "Account")
-                        </li>
-                        <li id="register">
-                            @Html.ActionLink("Регистрация", "Register", "Account")
-                        </li>
-                    }
-                    @if (MenuSecurity.IsAuthorized)
-                    {
-                        <li id="logout">
-                            @Html.ActionLink("Выйти", "Logout", "Account")
-                        </li>
-                    }
-                </ul>
+							</ul>
+						</li>
+					}
+					@if (!MenuSecurity.IsAuthorized)
+					{
+						<li id="login">
+							@Html.ActionLink("Войти", "Login", "Account")
+						</li>
+						<li id="register">
+							@Html.ActionLink("Регистрация", "Register", "Account")
+						</li>
+					}
+					@if (MenuSecurity.IsAuthorized)
+					{
+						<li id="logout">
+							@Html.ActionLink("Выйти", "Logout", "Account")
+						</li>
+					}
+				</ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -137,7 +148,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="@Url.Content("/js/bootstrap.js")"></script>
-    <script src="@Url.Content("/js/modern-business.js")"></script>
+    @*<script src="@Url.Content("/js/modern-business.js")"></script>*@
 </body>
 </html>
 

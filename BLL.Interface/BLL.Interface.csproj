@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IBookingService.cs" />
     <Compile Include="Interfaces\IHotelService.cs" />
     <Compile Include="Interfaces\IRoomService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />

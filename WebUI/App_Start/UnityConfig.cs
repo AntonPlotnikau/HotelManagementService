@@ -51,6 +51,8 @@ namespace WebUI
             container.RegisterType<IRoomService, RoomService>();
             container.RegisterType<IRoomRepository, RoomRepositories>();
 			container.RegisterType<IUserService, UserService>();
+			container.RegisterType<IBookingRepository, BookingRepository>();
+			container.RegisterType<IBookingService, BookingService>();
 		}
     }
 }
