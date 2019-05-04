@@ -34,7 +34,7 @@ namespace DAL.Repositories
 		{
 			return Task<User>.Factory.StartNew(() => container.Users.FirstOrDefault(u => u.Id == userId));
 		}
-
+        
 		public Task<User> FindByNameAsync(string userName)
 		{
 			return Task<User>.Factory.StartNew(() => container.Users.FirstOrDefault(u => u.UserName == userName));

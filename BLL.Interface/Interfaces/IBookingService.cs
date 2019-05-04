@@ -11,7 +11,7 @@ namespace BLL.Interface.Interfaces
 
 		IEnumerable<Booking> GetBookings(string userName);
 
-		void AddBooking(Booking booking, string userName);
+        void AddBooking(Booking booking, string userName);
 
 		void UpdateBooking(Booking booking);
 	}

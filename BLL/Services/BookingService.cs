@@ -37,9 +37,24 @@ namespace BLL.Services
 		}
 
 		public IEnumerable<Booking> GetAllBookings()
-		{
-			throw new NotImplementedException();
-		}
+        {
+            var bookingsDB = repository.GetAllBookings();
+
+            foreach (var booking in bookingsDB)
+            {
+                yield return new Booking
+                                 {
+                                     Id = booking.Id,
+                                     StartDate = booking.StartDate,
+                                     EndDate = booking.EndDate,
+                                     Price = booking.Price,
+                                     BookingStatus =
+                                         (BookingStatus)Enum.Parse(typeof(BookingStatus), booking.BookingStatus, true),
+                                     User = new User { Id = booking.User.Id, UserName = booking.User.UserName },
+                                     Room = new Room { Id = booking.Room.Id, ImageURL = booking.Room.ImageURL }
+                                 };
+            }
+        }
 
 		public Booking GetBooking(int id)
 		{

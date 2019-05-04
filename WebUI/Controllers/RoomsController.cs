@@ -70,40 +70,6 @@ namespace WebUI.Controllers
             return this.RedirectToAction("ControlRoomService");
         }
 
-        //public ActionResult Details(string isbn)
-        //{
-        //    var findBook = this.service.FindByTag(isbn);
-
-        //    return this.View(findBook);
-        //}
-
-        //[HttpGet]
-        //public ActionResult Create()
-        //{
-        //    return this.View();
-        //}
-
-        //[HttpPost]
-        //public ActionResult Create(Book book)
-        //{
-        //    try
-        //    {
-        //        this.service.Add(book);
-
-        //        return this.RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        ViewBag.Error = "This book already saved!";
-        //        return this.View();
-        //    }
-        //}
-
-        public ActionResult SingleItem()
-        {
-            return View();
-        }
-
 		[HttpGet]
 		public ContentResult GetRooms()
 		{

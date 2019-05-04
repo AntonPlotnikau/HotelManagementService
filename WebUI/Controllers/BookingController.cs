@@ -18,7 +18,6 @@ namespace WebUI.Controllers
 			this.service = service;
 		}
 
-        // GET: Booking
         public ActionResult BookRoom()
         {
             return View();
@@ -29,7 +28,7 @@ namespace WebUI.Controllers
         {
 			try
 			{
-				booking.Room = new Room { Id = 1 };
+				booking.Room = new Room { Id = 1 }; // ??????????????????????????????????????????????????
 				service.AddBooking(booking, HttpContext.User.Identity.Name);
 			}
 			catch (ArgumentException)
@@ -42,7 +41,7 @@ namespace WebUI.Controllers
 				return View(booking);
 			}
 
-			return RedirectToAction("");
+			return RedirectToAction("GetBookings");
 		}
 
 		public ActionResult GetBookings()
@@ -50,5 +49,11 @@ namespace WebUI.Controllers
 			var model = this.service.GetBookings(HttpContext.User.Identity.Name);
 			return View(model);
 		}
+
+        public ActionResult GetAllBookings()
+        {
+            var model = this.service.GetAllBookings();
+            return View(model);
+        }
 	}
 }

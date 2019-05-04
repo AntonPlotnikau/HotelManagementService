@@ -58,8 +58,8 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Личный кабинет<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li id="bloghome1">
-									@Html.ActionLink("Информация о пользователе", "Home1", "Blog")
-								</li>
+                                    @Html.ActionLink("Информация о пользователе", "GetAccountInfo", "Account")
+                                </li>
 								<li id="bloghome2">
 									@Html.ActionLink("Брони", "GetBookings", "Booking")
 								</li>
@@ -86,14 +86,14 @@
 					@if (MenuSecurity.IsManager)
 					{
 						<li id="other" class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Other Pages <b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Управление<b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li id="fullwidthpage">
 									@Html.ActionLink("Управление номерами", "ControlRoomService", "Rooms")
 								</li>
 								<li id="fullwidthpage">
-									@Html.ActionLink("Full Width Page", "FullWidth", "Other")
-								</li>
+                                    @Html.ActionLink("Брони", "GetAllBookings", "Booking")
+                                </li>
 								<li id="sidebarpage">
 									@Html.ActionLink("Sidebar Page", "Sidebar", "Other")
 								</li>

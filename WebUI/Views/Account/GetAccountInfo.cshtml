@@ -1,0 +1,48 @@
+﻿@model BLL.Interface.Models.User
+
+@{
+    ViewBag.Title = "GetAccountInfo";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">
+                Аккаунт пользователя
+            </h2>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Домой", "Index", "Home")
+                </li>
+                <li class="active">Аккаунт пользователя</li>
+            </ol>
+        </div>
+    </div>
+
+    <div>
+        <h4>Пользователь</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <p>Логин</p>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+
+            <dt>
+                <p>Пароль</p>
+            </dt>
+
+            <dd>
+                @Html.PasswordFor(model => model.Password)
+            </dd>
+
+        </dl>
+    </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        </p>
+
+</div>

@@ -273,6 +273,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Booking\BookRoom.cshtml" />
     <Content Include="Views\Booking\GetBookings.cshtml" />
+    <Content Include="Views\Account\GetAccountInfo.cshtml" />
+    <Content Include="Views\Booking\GetAllBookings.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

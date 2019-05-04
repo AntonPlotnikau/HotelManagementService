@@ -31,12 +31,7 @@ namespace DAL.Repositories
 			}
 		}
 
-		public IEnumerable<Booking> GetAllBookings()
-		{
-			throw new System.NotImplementedException();
-		}
-
-		public Booking GetBooking(int id)
+        public Booking GetBooking(int id)
 		{
 			throw new System.NotImplementedException();
 		}
@@ -51,7 +46,15 @@ namespace DAL.Repositories
 			}
 		}
 
-		public void UpdateBooking(Booking booking)
+        public IEnumerable<Booking> GetAllBookings()
+        {
+            using (var container = new DataModelContainer())
+            {
+                return container.Bookings.Include(x => x.Room).Include(x => x.User).ToList();
+            }
+        }
+
+        public void UpdateBooking(Booking booking)
 		{
 			throw new System.NotImplementedException();
 		}

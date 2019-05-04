@@ -29,8 +29,15 @@ namespace WebUI.Controllers
 			this.service = service;
 		}
 
-		#region Регистрация
-		[AllowAnonymous]
+        public ActionResult GetAccountInfo()
+        {
+            var user = this.service.FindByLoginAsync(HttpContext.User.Identity.Name);
+            return View(user.Result);
+        }
+
+
+        #region Регистрация
+        [AllowAnonymous]
 		// GET: Account
 		public ActionResult Register()
         {
