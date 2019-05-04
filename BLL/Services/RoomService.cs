@@ -84,5 +84,28 @@ namespace BLL.Services
                         ImageURL = room.ImageURL
                     });
         }
+
+        public IEnumerable<Room> GetRooms(FindRoomsRequest request)
+        {
+            var rooms = this.roomRepository.GetRooms(
+                r => (r.Bookings == null || r.Bookings.All(
+                          b => request.StartDate < b.StartDate && b.StartDate < request.EndDate
+                               || request.StartDate < b.EndDate && b.EndDate <= request.EndDate
+                               || b.StartDate < request.StartDate && b.EndDate > request.EndDate))
+                     && r.PlacesCount >= request.PlacesCount);
+
+            foreach (var room in rooms)
+            {
+                yield return new Room
+                                 {
+                                     Id = room.Id,
+                                     PlacesCount = room.PlacesCount,
+                                     DayPrice = room.DayPrice,
+                                     RoomType = (RoomType)Enum.Parse(typeof(RoomType), room.RoomType, true),
+                                     Description = room.Description,
+                                     ImageURL = room.ImageURL
+                                 };
+            }
+        }
     }
 }

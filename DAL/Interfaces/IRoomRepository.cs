@@ -17,5 +17,7 @@ namespace DAL.Interfaces
         void AddRoom(Room room);
 
         void UpdateRoom(Room room);
+
+        IEnumerable<Room> GetRooms(Func<Room, bool> predicate);
     }
 }

@@ -60,5 +60,13 @@ namespace DAL.Repositories
                 container.SaveChanges();
             }
         }
+
+        public IEnumerable<Room> GetRooms(Func<Room, bool> predicate)
+        {
+            using (DataModelContainer container = new DataModelContainer())
+            {
+                return container.Rooms.Where(predicate).ToList();
+            }
+        }
     }
 }

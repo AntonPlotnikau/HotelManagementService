@@ -7,6 +7,11 @@ using System.Web.Helpers;
 
 namespace WebUI.Controllers
 {
+    using System;
+    using System.Linq.Expressions;
+
+    using Microsoft.Ajax.Utilities;
+
     public class RoomsController : Controller
     {
         private readonly IRoomService roomService;
@@ -14,6 +19,24 @@ namespace WebUI.Controllers
         public RoomsController(IRoomService roomService)
         {
             this.roomService = roomService;
+        }
+
+        public ActionResult FindRooms()
+        {
+            return this.View();
+        }
+
+        [HttpPost]
+        public ActionResult FindRooms(FindRoomsRequest request)
+        {
+            if (!HttpContext.User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var model = this.roomService.GetRooms(request);
+
+            return this.View("RoomsBooking", model.ToList());
         }
 
         public ActionResult RoomsBooking()

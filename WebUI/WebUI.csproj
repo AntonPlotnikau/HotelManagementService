@@ -275,6 +275,7 @@
     <Content Include="Views\Booking\GetBookings.cshtml" />
     <Content Include="Views\Account\GetAccountInfo.cshtml" />
     <Content Include="Views\Booking\GetAllBookings.cshtml" />
+    <Content Include="Views\Rooms\FindRooms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

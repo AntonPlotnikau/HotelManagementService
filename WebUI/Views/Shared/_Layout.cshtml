@@ -40,10 +40,17 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li id="about">
-						@Html.ActionLink("О Гостинице", "Index", "About")
-					</li>
-					@if (MenuSecurity.IsManager)
+                    <li id="about">
+                        @Html.ActionLink("О Гостинице", "Index", "About")
+                    </li>
+                    @if (!MenuSecurity.IsManager)
+                    {
+                        <li id="services">
+                            @Html.ActionLink("Найти номер", "FindRooms", "Rooms")
+                        </li>
+                    }
+
+                    @if (MenuSecurity.IsManager)
 					{
 						<li id="services">
 							@Html.ActionLink("Services", "Index", "Services")
