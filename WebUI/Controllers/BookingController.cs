@@ -63,5 +63,19 @@ namespace WebUI.Controllers
 
 			return RedirectToAction("GetBookings");
 		}
-	}
+
+        public ActionResult ConfirmBooking(int id)
+        {
+            service.ChangeStatus(BookingStatus.Confirmed, id);
+
+            return RedirectToAction("GetAllBookings");
+        }
+
+        public ActionResult DeclineBooking(int id)
+        {
+            service.ChangeStatus(BookingStatus.Declined, id);
+
+            return RedirectToAction("GetAllBookings");
+        }
+    }
 }
