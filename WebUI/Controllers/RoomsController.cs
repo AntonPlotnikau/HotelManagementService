@@ -61,7 +61,17 @@ namespace WebUI.Controllers
         [HttpPost]
         public ActionResult DeleteRoom(string id, FormCollection collection)
         {
-            this.roomService.DeleteRoom(int.Parse(id));
+            try
+            {
+                this.roomService.DeleteRoom(int.Parse(id));
+            }
+            catch (ArgumentException e)
+            {
+                ModelState.AddModelError("", "Не возможно удалить, так как номер забронирован пользователями");
+                var model = this.roomService.GetRoom(int.Parse(id));
+                return this.View(model);
+            }
+
             return this.RedirectToAction("ControlRoomService");
         }
 

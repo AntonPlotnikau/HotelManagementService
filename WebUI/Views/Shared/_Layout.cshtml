@@ -50,12 +50,6 @@
                         </li>
                     }
 
-                    @if (MenuSecurity.IsManager)
-					{
-						<li id="services">
-							@Html.ActionLink("Services", "Index", "Services")
-						</li>
-					}
 					@if (MenuSecurity.IsClient)
 					{
 						<li id="booking">
@@ -73,24 +67,7 @@
 							</ul>
 						</li>
 					}
-					@if (MenuSecurity.IsManager)
-					{
-						<li id="blog" class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li id="bloghome1">
-									@Html.ActionLink("Blog Home 1", "Home1", "Blog")
-								</li>
-								<li id="bloghome2">
-									@Html.ActionLink("Blog Home 2", "Home2", "Blog")
-								</li>
-								<li id="blogpost">
-									@Html.ActionLink("Blog Post", "Post", "Blog")
-								</li>
-							</ul>
-						</li>
-					}
-					@if (MenuSecurity.IsManager)
+                    @if (MenuSecurity.IsManager)
 					{
 						<li id="other" class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Управление<b class="caret"></b></a>
@@ -101,16 +78,6 @@
 								<li id="fullwidthpage">
                                     @Html.ActionLink("Брони", "GetAllBookings", "Booking")
                                 </li>
-								<li id="sidebarpage">
-									@Html.ActionLink("Sidebar Page", "Sidebar", "Other")
-								</li>
-								<li id="faq">
-									@Html.ActionLink("FAQ", "Faq", "Other")
-								</li>
-								<li id="404">
-									@Html.ActionLink("404", "FourOhFour", "Other")
-								</li>
-
 							</ul>
 						</li>
 					}

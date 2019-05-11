@@ -32,6 +32,17 @@ namespace DAL.Repositories
             using (var container = new DataModelContainer())
             {
                 var room = container.Rooms.FirstOrDefault(r => r.Id == id);
+                if (room?.Bookings?.Count > 0 && room.Bookings.Any(b=>b.BookingStatus == "Opened" || b.BookingStatus == "Confirmed"))
+                {
+                    throw new ArgumentException();  
+                }
+
+                var bookings = room.Bookings.ToList();
+                foreach (var booking in bookings)
+                {
+                    container.Bookings.Remove(booking); 
+                }
+
                 container.Rooms.Remove(room);
                 container.SaveChanges();
             }
